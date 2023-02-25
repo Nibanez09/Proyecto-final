@@ -1,0 +1,18 @@
+{% extends "AppProyectos/padre.html"%}
+
+{% block titulo %}
+Resultados
+{% endblock %}
+
+{% block formulario %}
+
+    <p>Proyectos en categoría: {{d1}} </p>
+
+    <ol>
+    {% for x in d2 %}
+
+    <p>{{x.codigo}}</p>
+
+    {% endfor %}
+    </ol>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "AppProyectos/padre.html"%}
+
+{% load static %}
+
+{% block titulo %}
+Lista de proyectos
+{% endblock %}
+
+{% block formulario %}
+
+<button>
+    <a href="{% url 'Crear Proyectos' %}">Crear proyecto</a>
+</button>
+
+{% for proyecto in object_list %}
+<p> Codigo: {{proyecto.codigo}} ---------
+    Fecha: {{proyecto.fecha_recibido}} ---------
+    Plazo: {{proyecto.plazo}} ---------
+    Categoria: {{proyecto.categoria}}
+</p>
+
+{% if request.user.is_authenticated %}
+<button>
+    <a href="{% url 'Editar Proyectos' proyecto.id %}">Editar proyecto</a>
+    <a href="{% url 'Borrar Proyectos' proyecto.id %}">Borrar proyecto</a>
+</button>
+{% endif %}
+
+{% endfor %}
+
+{% endblock %}

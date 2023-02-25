@@ -1,0 +1,13 @@
+{% extends "AppProyectos/padre.html"%}
+
+{% block titulo %}
+<h1 class="text-white font-weight-bold">
+Bienvenido
+{% if request.user.is_authenticated %}
+{{request.user}}
+{% endif %}
+</h1>
+{% endblock %}
+
+
+    

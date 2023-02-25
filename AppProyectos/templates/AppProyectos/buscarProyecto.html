@@ -1,0 +1,17 @@
+{% extends "AppProyectos/padre.html"%}
+
+{% block titulo %}
+Búsquedas de proyectos por categoría
+{% endblock %}
+
+{% block formulario %}
+
+<form action="/AppProyectos/resultados_busqueda/" method = "GET">
+        
+    <input type="text" name="categoria">
+    <input type="submit" value="Buscar">
+
+
+</form>
+
+{% endblock %}

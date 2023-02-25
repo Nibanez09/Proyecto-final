@@ -1,0 +1,16 @@
+{% extends "AppProyectos/padre.html"%}
+
+{% block titulo %}
+Borrar clientes
+{% endblock %}
+
+{% block formulario %}
+
+<form action=" "    method="POST"> {% csrf_token %}
+
+   ¿Está seguro de que desea borrar el cliente "{{object}}"?
+       
+    <input type = "submit" value="Enviar">
+</form>
+
+{% endblock %}

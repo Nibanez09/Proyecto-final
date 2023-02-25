@@ -1,0 +1,29 @@
+{% extends "AppProyectos/padre.html"%}
+
+{% load static %}
+
+{% block titulo %}
+Lista de responsables
+{% endblock %}
+
+{% block formulario %}
+
+<button>
+    <a href="{% url 'Crear Responsables' %}">Crear Responsable</a>
+</button>
+
+{% for responsable in object_list %}
+<p> Nombre: {{responsable.nombre}} ---------
+    Apellido: {{responsable.apellido}} ---------
+</p>
+
+{% if request.user.is_authenticated %}
+<button>
+    <a href="{% url 'Editar Responsables' responsable.id %}">Editar responsable</a>
+    <a href="{% url 'Borrar Responsables' responsable.id %}">Borrar responsable</a>
+</button>
+{% endif %}
+
+{% endfor %}
+
+{% endblock %}

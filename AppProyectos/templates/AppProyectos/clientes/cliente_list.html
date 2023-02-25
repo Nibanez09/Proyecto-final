@@ -1,0 +1,33 @@
+{% extends "AppProyectos/padre.html"%}
+
+{% load static %}
+
+{% block titulo %}
+Lista de clientes
+{% endblock %}
+
+{% block formulario %}
+
+<button>
+    <a href="{% url 'Crear Clientes' %}">Crear Cliente</a>
+</button>
+
+{% for cliente in object_list %}
+<p> Nombre: {{cliente.nombre}} ---------
+    Apellido: {{cliente.apellido}} ---------
+    Empresa: {{cliente.empresa}} ---------
+    Profesion: {{cliente.profesion}} ---------
+    Email: {{cliente.email}}
+
+</p>
+
+{% if request.user.is_authenticated %}
+<button>
+    <a href="{% url 'Editar Clientes' cliente.id %}">Editar cliente</a>
+    <a href="{% url 'Borrar Clientes' cliente.id %}">Borrar cliente</a>
+</button>
+{% endif %}
+
+{% endfor %}
+
+{% endblock %}
